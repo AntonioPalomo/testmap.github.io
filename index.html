@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  
+  <!---------------------------------------- Borrar Cache ----------------------------------------------->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <meta http-equiv="pragma" content="no-cache">
+  
+  <!------------------------------------------ Titulo --------------------------------------------------->
+  <title>Modelo Prueba</title>
+  <meta charset="utf-8">
+  <meta name="description" content="<model-viewer> template">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
+
+  
+  <!------------------------------- Links opcionales para mejor funcionamiento ------------------------------------>
+  <!-- 🚨 REQUIRED: Web Components polyfill to support Edge and Firefox < 63 -->
+  <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script>
+
+  <!-- 💁 OPTIONAL: Intersection Observer polyfill for better performance in Safari and IE11 -->
+  <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+
+  <!-- 💁 OPTIONAL: Resize Observer polyfill improves resize behavior in non-Chrome browsers -->
+  <script src="https://unpkg.com/resize-observer-polyfill@1.5.0/dist/ResizeObserver.js"></script>
+
+  <!-- 💁 OPTIONAL: Fullscreen polyfill is needed to fully support AR features -->
+  <script src="https://unpkg.com/fullscreen-polyfill@1.0.2/dist/fullscreen.polyfill.js"></script>
+
+  <!-- 💁 OPTIONAL: Include prismatic.js for Magic Leap support -->
+  <script src="https://unpkg.com/@magicleap/prismatic/prismatic.min.js"></script>
+
+  <!-- 💁 OPTIONAL: The :focus-visible polyfill removes the focus ring for some input types -->
+  <script
+    src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js"
+    defer
+  ></script>
+  
+</head>
+<body>
+  
+  <!--------------------- Modal de Desarrollador --------------------------------->
+  <div class="modal-container2" id="developer-modal">
+    <div class="modal-content2">
+      <span class="modal_title">Información del Desarrollador</span>
+      <div class="modal-content-wrapper">   
+          <h3 style="text-align: center;"><img src="https://cdn.glitch.global/aec98b36-3f82-4982-ad7a-c81600570d28/alterno_corto_azul.png?v=1736460834882" class="company-logo"> </h3>
+          <p style="text-align: center;">Somos una empresa mexicana de Realidad Virtual y Realidad Aumentada. En FYWARE estamos convencidos del gran potencial que tienen la Realidad Virtual y la Realidad Aumentada.</p>
+          <p><strong>Visita nuestra página web:</strong> <a href="https://www.fyware.com/" target="_blank" class="link-style">FYWARE</a></p>
+        </div>
+      <button class="close-button">Cerrar</button>
+    </div>
+  </div>
+  
+  <div id="gesture-indicator-container">
+  <div class="gesture-indicator" id="rotate-indicator">
+    <img src="https://cdn.glitch.global/6d48ddd0-f596-4269-b04d-85c64182ed8d/imageRotate3.png?v=1745507689218" alt="Gesto de rotar" />
+    <span class="gesture-indicator-text">Gira el modelo</span>
+  </div>
+  <div class="gesture-indicator" id="zoom-indicator">
+    <img src="https://cdn.glitch.global/6d48ddd0-f596-4269-b04d-85c64182ed8d/imageZoom.png?v=1745506764684" alt="Gesto de zoom" />
+    <span class="gesture-indicator-text">Haz zoom</span>
+  </div>
+</div>
+  
+  <!-------------------------------------------------- Model Viewer ------------------------------------------------------------------->
+  <model-viewer src="hig.glb"
+                ios-src=""
+                poster=""
+                id="model-viewer"
+                ar ar-modes="webxr scene-viewer quick-look"
+                camera-orbit="-45deg auto auto" 
+                min-camera-orbit="auto auto 250%" 
+                max-camera-orbit="auto auto 0"
+                camera-controls 
+                scale="1 1 1"
+                environment-image="" 
+                shadow-intensity="1" exposure="" 
+                style="width: 100%; height: auto; background-color: #FFFFFF;">
+        
+    <!-- Botón de QR para PC -->
+    <button id="ar-badge" class="ar active">
+        <img src="https://cdn.glitch.global/bc28381d-0170-4202-afc3-b66fa8ce4a87/imageArIcon.png?v=1740846331965" alt="AR QR" />
+    </button>
+    
+<!--     <div id="loader-messages">
+      <div id="loading-message" class="message"></div>
+      <div id="informative-messages"></div>
+    </div> -->
+
+
+    
+    <button slot="ar-button" id="ar-button" class="ar-buttoni">Ver en tu espacio <i class="fas fa-camera"></i></button>
+    <div id="project-title"></div> <!-- Título que aparecerá al inicio -->
+    <!----------- Imagen QR -------------> 
+    
+    <!------ Imagen Desarrollador -------> 
+    <img id="floating-image" src="https://cdn.glitch.global/55349635-d56b-4d1e-947a-1caca4c971da/logo2_azul.png?v=1734648636206" alt="Scalable Image">
+  </model-viewer>
+  
+  
+  <!--------------------- Modal para compartir QR --------------------------------->
+  <div class="qr-code-container" id="qr-code-container">
+    <div class="qr-code-overlay"></div>
+    <div class="qr-code">
+      <span class="qr-code__title">Realidad Aumentada</span>
+      <div class="qr-code__image-aspect-box">
+        <img id="qr-code-img" class="qr-code__image" src="https://cdn.glitch.global/bbc898e0-a44f-4bed-8c8b-49b39fb80279/qr-codeButacaParis.png?v=1747860131932" alt="QR Code">
+      </div>
+      <span class="qr-code__subtitle">Apunta tu cámara al código QR. Toca el banner que aparece en tu pantalla.</span>
+      <button class="qr-code__close-button">Cerrar</button>
+    </div>
+  </div>
+
+  <!-- Imagen Expandida -->
+  <div id="qr-code-expanded" class="qr-code-expanded">
+    <span id="close-expanded" class="close-btn">
+      <i class="fas fa-times"></i> <!-- Icono de la X -->
+    </span>
+    <img id="expanded-img" class="expanded-img" alt="QR Code Expansión">
+  </div>
+  
+  <!--------------------- Cargar Script y Script del model viewer --------------------------------->
+  <script src="script.js" type="module"></script>
+  <!-- Loads <model-viewer> for modern browsers: -->
+  <script 
+      type="module" 
+      src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"
+  ></script>
+
+  <!-- Loads <model-viewer> for old browsers like IE11: -->
+  <script
+    nomodule
+    src="https://unpkg.com/@google/model-viewer@v0.9.0/dist/model-viewer-legacy.js"
+  ></script> 
+
+</body>
+</html>

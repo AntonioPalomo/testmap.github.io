@@ -1,0 +1,573 @@
+/* ----------Estilo para el botón Ver en tu espacio----------- */
+#ar-button {
+    display: inline-block;
+    padding: 8px 18px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #007fa3; /* Verde oscuro */
+    color: white;
+    border-radius: 32px;
+    margin-top: 2px;
+    cursor: pointer;
+    outline: none;
+    border: 1.5px solid #555; /* Borde gris oscuro */
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s ease-in-out; /* Transición suave */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra gris sutil */
+    position: relative; /* Para el brillo central */
+}
+
+/* Efecto hover */
+#ar-button:hover {
+    background-color: #00638f; /* Verde más oscuro */
+    box-shadow: 0 4px 8px rgba(0, 123, 99, 0.3); /* Efecto de sombra */
+}
+
+/* Efecto cuando el botón es presionado (activo) */
+#ar-button:active {
+    background-color: #005176; /* Fondo más oscuro */
+    box-shadow: 0 2px 4px rgba(0, 123, 99, 0.4); /* Sombra al presionar */
+}
+
+.ar-buttoni i {
+  font-size: 14px;              /* Ajusta el tamaño del ícono */
+  margin-left: 6px;
+}
+
+/* --------------------------------------------------------------------------------------- */
+
+
+/* Para el botón AR de vuelta (back) */
+#ar-badge {
+  position: fixed; /* Fijo en la pantalla */
+  right: 5px; /* 5px de distancia del borde derecho */
+  z-index: 10; /* Asegura que el botón esté encima del modelo */
+  top: 10px; /* Separación de 40px desde la esquina superior de la pantalla */
+  transform: translateY(0); /* Centrado vertical */
+  margin-bottom: 20px; /* Espacio entre los botones */
+}
+
+/* General para todos los botones */
+.ar.active {
+  display: inline-block; /* Alineación en línea */
+  padding: 0; /* Quitar el espaciado interno */
+  font-size: 14px; /* Tamaño de fuente */
+  font-weight: bold; /* Negrita */
+  text-align: center; /* Alineación de texto */
+  text-decoration: none; /* Sin subrayado */
+  background-color: #007fa3; /* Azul claro */
+  color: white; /* Texto blanco */
+  border-radius: 50%; /* Bordes redondeados para que los botones sean circulares */
+  margin-top: 2px; /* Espaciado superior */
+  cursor: pointer; /* Cursor de mano */
+  outline: none; /* Eliminar borde al hacer clic */
+  -webkit-tap-highlight-color: transparent;
+  border: 1.5px solid #555; /* Borde gris oscuro */
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s ease-in-out; /* Transiciones suaves */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra gris sutil */
+  position: relative;
+
+  /* Tamaño relativo con el valor más pequeño entre ancho o altura */
+  width: min(10vw, 12vh); /* El ancho se ajusta según el tamaño del viewport */
+  height: min(10vw, 12vh); /* El alto también se ajusta de manera uniforme */
+
+  display: flex;
+  justify-content: center; /* Centra la imagen dentro del botón */
+  align-items: center; /* Centra la imagen dentro del botón */
+
+  /* Limitar el tamaño máximo y mínimo */
+  max-width: 80px; /* Máximo tamaño */
+  min-width: 50px; /* Mínimo tamaño */
+  max-height: 80px; /* Máximo tamaño */
+  min-height: 50px; /* Mínimo tamaño */
+}
+
+/* Efecto Hover */
+.ar.active:hover {
+  background-color: #00638f; /* Verde más oscuro */
+  box-shadow: 0 4px 8px rgba(0, 123, 99, 0.3); /* Efecto de sombra */
+  transform: scale(1.1); /* Aumento de tamaño al pasar el mouse */
+}
+
+/* Efecto al presionar el botón */
+.ar.active:active {
+  background-color: #005176; /* Fondo más oscuro */
+  box-shadow: 0 2px 4px rgba(0, 123, 99, 0.4); /* Sombra al presionar */
+  transform: scale(0.95); /* Disminuye el tamaño al presionar */
+}
+
+/* Para las imágenes dentro del botón */
+.ar.active img {
+  width: 75%;
+  height: 75%;
+  object-fit: contain;
+}
+
+/* Efecto Hover en la imagen */
+.ar.active:hover img {
+  transform: scale(1.05); /* Escala la imagen al pasar el mouse */
+}
+
+/* Efecto Active en la imagen */
+.ar.active:active img {
+  transform: scale(1.1); /* Escala la imagen al presionar el botón */
+}
+
+/* Ocultar el ícono de AR cuando no se soporta WebXR */
+.ar.active.hidden {
+    display: none; /* Se oculta cuando la clase 'hidden' se agrega */
+}
+/* Ocultar el ícono de AR cuando no se soporta WebXR */
+.ar.active.hidden {
+    display: none; /* Se oculta cuando la clase 'hidden' se agrega */
+}
+
+/* --------------------------------------------------------------------------------------- */
+
+
+/* -------------------Estilo para el título del proyecto------------------------ */
+#project-title {
+  position: absolute;  
+  top: 25%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+  padding: 5px 10px;
+  background-color: rgba(0, 0, 0, 0.4); /* Fondo semi-transparente */
+  color: white;
+  border-radius: 10px;
+  font-size: 2rem;
+  font-family: 'Helvetica', sans-serif;
+  margin-left: 15px;
+  margin-right: 15px;
+  text-align: center;
+  opacity: 0; 
+  position: absolute;
+  z-index: 10;
+  border: 2px solid rgba(255, 255, 255, 0.8);  /* Borde blanco con algo de transparencia */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2), 0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.6);
+  pointer-events: none; /* Desactivar interacciones */
+}
+
+/* Definimos la animación fade-out */
+@keyframes fadeOutAnimation {
+  0% {
+    opacity: 1; /* Empieza completamente visible */
+  }
+  100% {
+    opacity: 0; /* Finaliza completamente invisible */
+  }
+}
+
+.fade-out {
+  animation: fadeOutAnimation 3s forwards; /* Ejecuta la animación de desvanecimiento en 3 segundos */
+}
+/* --------------------------------------------------------------------------------------- */
+
+
+/* ----------------Estilos para los Modales de Informacion----------------------- */
+.modal-container2 {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  display: none;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro */
+}
+
+/* Cuando se agrega la clase "show", el modal se muestra */
+.modal-container2.show {
+  display: flex; /* Hace visible el modal */
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: stretch; /* Asegura que los botones ocupen todo el ancho */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+.modal-content2 {
+  position: absolute;
+  box-sizing: border-box;
+  width: 80%;
+  max-width: 350px;
+  max-height: 80%; /* Limitar la altura máxima del modal */
+  overflow-y: auto; /* Permite desplazarse si el contenido es mayor que la altura */
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: -8px 12px 24px rgba(82, 122, 158, 0.8);
+  padding: 16px;
+  font-family: 'Inter', sans-serif;
+}
+
+.modal_title {
+  background-color: #fff;
+  padding: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  z-index: 1;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave debajo del título */
+  position: sticky;
+  top: 0;
+}
+
+/* Estilo para la segunda sección: la parte de la información desplazable */
+.modal-content-wrapper {
+  overflow-y: auto; /* Permite desplazarse si el contenido es mayor que la altura */
+  max-height: calc(100% - 140px); /* Deja espacio para el título y el botón */
+  padding-top: 0;
+  padding-bottom: 30px;
+  align: center;
+}
+
+/* Estilo del enlace dentro del modal */
+.link-style {
+  font-style: italic; /* Poner el enlace en cursiva */
+  font-weight: bold;  /* Poner el enlace en negritas */
+  color: #007fa3; /* Color personalizado, en este caso un azul */
+  text-decoration: none; /* Quitar el subrayado del enlace */
+  transition: color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+/* Estilo cuando el enlace se pasa por encima (hover) */
+.link-style:hover {
+  color: #005f73; /* Color más oscuro al hacer hover */
+  text-decoration: underline; /* Subrayado al pasar el mouse */
+}
+
+/* Estilo para la tercera sección: el botón de cerrar */
+.modal-close-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Botón de cerrar */
+.close-button {
+  display: inline-block;
+    padding: 10px 20px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #006272;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.3s;
+}
+
+.close-button:hover {
+  background-color: #008fa3;
+  box-shadow: 0 4px 8px rgba(0, 163, 207, 0.3);
+}
+
+.close-button:active {
+    background-color: #007a8c;
+    box-shadow: 0 2px 4px rgba(0, 163, 207, 0.4);
+}
+/* --------------------------------------------------------------------------------------- */
+
+
+/* ------------------Inicio Estilos para mostrar QR de AR---------------- */
+
+.qr-code__close-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #00a3cf;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.3s;
+}
+
+.qr-code__close-button:hover {
+    background-color: #008fa3;
+    box-shadow: 0 4px 8px rgba(0, 163, 207, 0.3);
+}
+
+.qr-code__close-button:active {
+    background-color: #007a8c;
+    box-shadow: 0 2px 4px rgba(0, 163, 207, 0.4);
+}
+
+.qr-code-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro */
+}
+
+/* Mostrar el modal */
+.qr-code-container.show {
+    display: flex; /* Cuando se agrega la clase 'show', el modal se vuelve visible */
+}
+
+.qr-code {
+    position: absolute;
+    box-sizing: border-box;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    background: #ffffff;
+    border-radius: 4px;
+    box-shadow: -8px 12px 24px rgba(82, 122, 158, 0.8);
+    padding: 16px;
+    font-family: 'Inter', sans-serif;
+}
+
+.qr-code__title,
+.qr-code__subtitle {
+    text-align: center;
+    color: #252525;
+}
+
+.qr-code__title {
+    padding-top: 20px;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.qr-code__subtitle {
+    padding: 0px 20px;
+    font-size: 13px;
+}
+
+.qr-code__image-aspect-box {
+    position: relative;
+    width: 100%;
+}
+
+.qr-code__image {
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.3s;
+}
+
+.qr-code__image:hover {
+  box-shadow: 0px 0px 2px rgba(82, 122, 158, 0.8);
+}
+
+.qr-code__image:active {
+    transform: scale(1.01);
+}
+
+/* Estilo para el modal expandido */
+.qr-code-expanded {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.expanded-img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: none;
+}
+
+.qr-code__close-button i, .close-btn i {
+  font-size: 30px;  /* Tamaño del icono */
+  color: white;  /* Color del icono */
+  cursor: pointer;
+}
+/* --------------------------------------------------------------------------------------- */
+
+
+/* -------------------------Estilo para la imagen del desarrollador--------------------------- */
+#floating-image {
+  position: fixed; /* La imagen se mantiene fija */
+  bottom: 5px; /* Distancia desde el fondo */
+  right: 10px; /* Distancia desde la derecha */
+  max-width: 20vw;  
+  height: auto;     /* Mantiene la relación de aspecto */
+  width: auto;      /* La imagen se ajusta proporcionalmente */
+  max-height: 3.8vh;
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: max-width 0.3s ease, max-height 0.3s ease; /* Transición suave de max-width y max-height */
+}
+
+/* Escalado de la imagen cuando pasa el mouse sobre ella */
+#floating-image:hover {
+  max-width: 21vw;  
+  max-height: 4.2vh;
+}
+
+/* Escalado de la imagen cuando pasa el mouse sobre ella */
+#floating-image:active {
+  max-width: 22vw;  
+  max-height: 4.4vh;
+}
+
+.company-logo {
+  width: 200px; 
+  height: auto;
+  margin-right: 10px;  
+  outline: none;
+}
+/* --------------------------------------------------------------------------------------- */
+
+
+
+#gesture-indicator-container {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 40px;
+  z-index: 8;
+  pointer-events: none; /* Que no bloquee la interacción con el modelo */
+}
+
+.gesture-indicator {
+  display: flex;
+  align-items: center; /* Alinea ícono y texto en el centro vertical */
+  gap: 10px; /* Espacio entre ícono y texto */
+  opacity: 0.95;
+  animation: bounce 2s infinite;
+  transition: opacity 0.3s;
+}
+
+.gesture-indicator img {
+  width: auto;
+  height: 60px;
+}
+
+.gesture-indicator-text {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 60;
+  color: #222; /* Gris oscuro, mejor contraste con fondo blanco */
+  background-color: rgba(0, 0, 0, 0.02); /* Suave fondo oscuro con transparencia */
+  padding: 0.2em 0.6em;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* Sombra suave para resaltar */
+  
+  /* Escalado relativo con límites */
+  font-size: clamp(0.75rem, 1.5vw, 1.1rem); 
+  max-width: 90vw;
+}
+
+/* Animación tipo rebote */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (min-width: 768px) {
+  #gesture-indicator-container {
+    display: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------------------- */
+
+#loader-messages {
+  position: absolute;
+  bottom: 40px; /* Coloca los mensajes en la parte inferior de la pantalla */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.message {
+  background: rgba(59, 63, 80, 0.80);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 12px;
+  margin-top: 10px;
+  font-size: 14px;
+  font-family: 'Quicksand', sans-serif;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  animation: slideIn 0.4s ease-out;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.5s ease;
+}
+
+.message.fade-out {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#loading-message {
+  background: #047c90; /* Color amarillo para destacar el mensaje de carga */
+  color: #fff;
+  font-weight: bold;
+  z-index: 30; /* Aseguramos que este mensaje esté por encima */
+}
+
